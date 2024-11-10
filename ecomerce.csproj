@@ -206,6 +206,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\fondoropa.jpg" />
+    <Content Include="images\herramientas.png" />
+    <Content Include="images\ropa.png" />
     <Content Include="images\Ropa\Abrigo.jpg" />
     <Content Include="images\Ropa\Blusa.jpg" />
     <Content Include="images\Ropa\Camiseta.jpg" />
