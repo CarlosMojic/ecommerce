@@ -1,0 +1,214 @@
+﻿@model IEnumerable<ecomerce.Models.Product>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap 5 JS (con Popper.js incluido) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Hero Section: Banner de bienvenida -->
+<section class="hero bg-dark text-white text-center py-5" style="background-image: url('../../images/fondoropa.jpg'); background-size: cover; background-position: center;">
+    <div class="container">
+        <h1 class="display-4 font-weight-bold mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);">Bienvenido a un nuevo nivel de compras</h1>
+        <p class="lead mb-5" style="font-family: 'Roboto', sans-serif; font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);">Lo último en moda, tecnología y accesorios exclusivos. Encuentra lo que realmente te apasiona.</p>
+        <a href="#categories" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm" style="font-family: 'Poppins', sans-serif;">Ver productos</a>
+    </div>
+</section>
+
+<!-- Sección de productos destacados -->
+<section class="container py-5">
+    <h2 class="text-center mb-4">Productos Destacados</h2>
+    <div class="row">
+        <!-- Producto 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Producto 1">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 1</h5>
+                    <p class="card-text">Descripción breve del producto.</p>
+                    <p class="card-text"><strong>$19.99</strong></p>
+                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+        <!-- Producto 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Producto 2">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 2</h5>
+                    <p class="card-text">Descripción breve del producto.</p>
+                    <p class="card-text"><strong>$29.99</strong></p>
+                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+        <!-- Producto 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Producto 3">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 3</h5>
+                    <p class="card-text">Descripción breve del producto.</p>
+                    <p class="card-text"><strong>$39.99</strong></p>
+                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de productos -->
+<div class="container mt-4">
+    <div class="row">
+        <!-- Producto 1 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Consola de PS4 Pro 1TB Negro.jpg" alt="PS4 Pro" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Consola de PS4 Pro 1TB Negro</h5>
+                    <p class="card-text fs-5 fw-bold">$2000</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="1" action="@Url.Action("AddToCart", "Cart", new { productId = 1 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/HP Laptop 15-EF1019LA.jpg" alt="Laptop HP" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">HP Laptop 15-EF1019LA</h5>
+                    <p class="card-text fs-5 fw-bold">$200</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="2" action="@Url.Action("AddToCart", "Cart", new { productId = 2 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Televisor 65 4K Ultra HD Smart TV.jpeg" alt="LG TV 65" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Televisor 65 4K Ultra HD Smart TV</h5>
+                    <p class="card-text fs-5 fw-bold">$500</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="3" action="@Url.Action("AddToCart", "Cart", new { productId = 3 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Televisor 50 4K Ultra HD Smart Android.jpg" alt="Hyundai TV 50" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Televisor 50 4K Ultra HD Smart Android</h5>
+                    <p class="card-text fs-5 fw-bold">$3300</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="4" action="@Url.Action("AddToCart", "Cart", new { productId = 4 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fila 2 de productos -->
+    <div class="row">
+        <!-- Producto 5 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Smartphone Xiaomi Redmi Note 10.jpg" alt="Smartphone Xiaomi" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Smartphone Xiaomi Redmi Note 10</h5>
+                    <p class="card-text fs-5 fw-bold">$200</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="5" action="@Url.Action("AddToCart", "Cart", new { productId = 5 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Smartphone Samsung Galaxy A52.jpeg" alt="Smartphone Samsung" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Smartphone Samsung Galaxy A52</h5>
+                    <p class="card-text fs-5 fw-bold">$300</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="6" action="@Url.Action("AddToCart", "Cart", new { productId = 6 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 7 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Auriculares Sony WH-1000XM4.jpg" alt="Auriculares Sony" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Auriculares Sony WH-1000XM4</h5>
+                    <p class="card-text fs-5 fw-bold">$20</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="7" action="@Url.Action("AddToCart", "Cart", new { productId = 7 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 8 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-lg border-0 rounded-3 hover-shadow-lg">
+                <img class="card-img-top rounded-3" src="~/images/Tec/Microsoft Surface Pro 7.jpg" alt="Microsoft Surface Pro 7" />
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">Microsoft Surface Pro 7</h5>
+                    <p class="card-text fs-5 fw-bold">$900</p>
+                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                    <form class="add-to-cart-form" data-product-id="8" action="@Url.Action("AddToCart", "Cart", new { productId = 8 })" method="post">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Seleccionamos todos los formularios de agregar al carrito
+        $('.add-to-cart-form').on('submit', function (e) {
+            e.preventDefault();  // Evitar que el formulario recargue la página
+
+            var form = $(this);
+            var productId = form.data('product-id'); // Obtener el ID del producto desde el atributo data-product-id
+            var url = form.attr('action');
+            var data = form.serialize();  // Obtener los datos del formulario
+
+            // Hacer la solicitud AJAX para agregar el producto al carrito
+            $.post(url, data, function (response) {
+                alert('¡Producto agregado al carrito con éxito! Producto ID: ' + productId);
+            }).fail(function () {
+                alert('Hubo un problema al agregar el producto al carrito.');
+            });
+        });
+    });
+</script>
