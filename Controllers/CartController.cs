@@ -76,6 +76,9 @@ namespace ecomerce.Controllers
 
             };
 
+
+            //prueba de commit
+
             // Buscar el producto por su ID
             return products.FirstOrDefault(p => p.ProductId == productId);
         }
