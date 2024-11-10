@@ -65,14 +65,14 @@ namespace ecomerce.Controllers
 
                 //Seccion de Herramientas
 
-                new Product { ProductId = 17, Name = "alicates", Price = 1m},
-                new Product { ProductId = 18, Name = "cinta", Price = 2m},
-                new Product { ProductId = 19, Name = "destonillador", Price = 5m},
-                new Product { ProductId = 20, Name = "llave inglesa", Price = 10m},
-                new Product { ProductId = 21, Name = "martillo", Price = 10m},
-                new Product { ProductId = 22, Name = "sierra", Price = 5},
-                new Product { ProductId = 23, Name = "taladro", Price = 30},
-                new Product { ProductId = 24, Name = "cuter", Price = 1},
+                new Product { ProductId = 17, Name = "Alicates", Price = 1m},
+                new Product { ProductId = 18, Name = "Cinta", Price = 2m},
+                new Product { ProductId = 19, Name = "Destonillador", Price = 5m},
+                new Product { ProductId = 20, Name = "Llave inglesa", Price = 10m},
+                new Product { ProductId = 21, Name = "Martillo", Price = 10m},
+                new Product { ProductId = 22, Name = "Sierra", Price = 5},
+                new Product { ProductId = 23, Name = "Taladro", Price = 30},
+                new Product { ProductId = 24, Name = "Cuter", Price = 1},
                 
 
                 
