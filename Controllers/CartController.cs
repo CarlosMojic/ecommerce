@@ -1,8 +1,6 @@
 ﻿using ecomerce.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace ecomerce.Controllers
@@ -37,10 +35,43 @@ namespace ecomerce.Controllers
             return RedirectToAction("Index", "Home"); // Redirigir a la página de inicio (o cualquier página que desees)
         }
 
-        // Obtener un producto por su ID (simulación con una lista de productos estáticos)
+        // Acción para ver el carrito
+        public ActionResult ViewCart()
+        {
+            var cart = GetCart();
+            return View(cart); // Pasar la lista de productos del carrito a la vista
+        }
+
+        // Acción para eliminar un producto del carrito
+        public ActionResult RemoveFromCart(int productId)
+        {
+            var cart = GetCart();
+            var product = cart.FirstOrDefault(p => p.ProductId == productId); // Buscar el producto por su ID
+
+            if (product != null)
+            {
+                cart.Remove(product); // Eliminar el producto del carrito
+                Session["Cart"] = cart; // Actualizar la sesión
+            }
+
+            return RedirectToAction("ViewCart"); // Redirigir al carrito para ver los cambios
+        }
+
+        // Acción para vaciar el carrito (limpiar la sesión)
+        [HttpPost]
+        public ActionResult ClearCart()
+        {
+            // Limpiar el carrito de la sesión
+            Session["Cart"] = new List<Product>(); // Establecer el carrito como una lista vacía
+
+            // Retornar una respuesta de éxito
+            return Json(new { success = true });
+        }
+
+        // Método privado para obtener un producto por su ID
         private Product GetProductById(int productId)
         {
-            // Aquí puedes simular una lista de productos o recuperarlos de una base de datos
+
             var products = new List<Product>
             {
                 new Product { ProductId = 1, Name = "Consola de PS4 Pro 1TB Negro", Price = 2000m, ImageUrl ="/images/Tec/Consola de PS4 Pro 1TB Negro.jpg"},
@@ -72,36 +103,11 @@ namespace ecomerce.Controllers
                 new Product { ProductId = 21, Name = "Martillo", Price = 10m, ImageUrl ="/images/her/martillo.jpg"},
                 new Product { ProductId = 22, Name = "Sierra", Price = 5, ImageUrl ="/images/her/sierra.jpg"},
                 new Product { ProductId = 23, Name = "Taladro", Price = 30, ImageUrl ="/images/her/taladro.jpg"},
-                new Product { ProductId = 24, Name = "Cuter", Price = 1, ImageUrl ="/images/her/cuter.jpg"}
-                
 
-                
             };
 
-            // Buscar el producto por su ID
+
             return products.FirstOrDefault(p => p.ProductId == productId);
-        }
-
-        // Acción para ver el carrito
-        public ActionResult ViewCart()
-        {
-            var cart = GetCart();
-            return View(cart); // Pasar la lista de productos del carrito a la vista
-        }
-
-        // Acción para eliminar un producto del carrito
-        public ActionResult RemoveFromCart(int productId)
-        {
-            var cart = GetCart();
-            var product = cart.FirstOrDefault(p => p.ProductId == productId); // Buscar el producto por su ID
-
-            if (product != null)
-            {
-                cart.Remove(product); // Eliminar el producto del carrito
-                Session["Cart"] = cart; // Actualizar la sesión
-            }
-
-            return RedirectToAction("ViewCart"); // Redirigir al carrito para ver los cambios
         }
     }
 }
