@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Panel de Control";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Aquí podrías agregar los estilos de Bootstrap o CSS propio -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo o nombre de la página -->
+            <a class="navbar-brand" href="#">Panel de Control</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Enlace a la tienda -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")">Ver Tienda</a>
+                    </li>
+
+                    <!-- Botón de cerrar sesión -->
+                    <li class="nav-item">
+                        <form action="@Url.Action("Logout", "Account")" method="post" class="nav-link">
+                            <button type="submit" class="btn btn-link nav-link">Cerrar Sesión</button>
+                        </form>
+                    </li>
+
+                    <!-- Botón para redirigir a Admin Index -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Admin")">Ir al Panel de Administración</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>@ViewBag.Title</h2>
+        <p>Bienvenido al panel de control, aquí puedes gestionar empleados y usuarios.</p>
+
+        <!-- Botones para la gestión -->
+        <div class="row">
+            <!-- Botón para gestionar empleados -->
+            <div class="col-md-6">
+                <a href="@Url.Action("GestionEmpleados", "Admin")" class="btn btn-primary btn-lg btn-block">Gestionar Empleados</a>
+            </div>
+
+            <!-- Botón para gestionar usuarios -->
+            <div class="col-md-6">
+                <a href="@Url.Action("GestionUsuarios", "Admin")" class="btn btn-primary btn-lg btn-block">Gestionar Usuarios</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agregar scripts de Bootstrap si es necesario -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
