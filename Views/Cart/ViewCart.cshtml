@@ -12,7 +12,6 @@ else
 {
     <div class="cart-container">
         <div class="cart-details">
-            <p>Tienes @Model.Count artículo(s) en tu carrito</p>
             @foreach (var product in Model)
             {
                 <div class="cart-item">
@@ -24,14 +23,7 @@ else
                         </div>
                     </div>
                     <div class="item-price">
-                        <p>Precio: S/. @product.Price</p>
-                    </div>
-                    <div class="item-quantity">
-                        <form method="post" action="@Url.Action("UpdateQuantity", "Cart", new { productId = product.ProductId })">
-                            <button type="submit" name="quantity" value="@product.Quantity-1" class="quantity-btn">-</button>
-                            <input type="text" value="@product.Quantity" readonly class="quantity-input" />
-                            <button type="submit" name="quantity" value="@product.Quantity+1" class="quantity-btn">+</button>
-                        </form>
+                        <p>Precio: $@product.Price</p> <!-- Cambio a dólares -->
                     </div>
                     <div class="item-remove">
                         <a href="@Url.Action("RemoveFromCart", "Cart", new { productId = product.ProductId })" class="remove-btn">Eliminar</a>
@@ -65,7 +57,7 @@ else
                     </div>
                 </div>
 
-                <h4>Total a Pagar: S/. @Model.Sum(p => p.Price * p.Quantity)</h4>
+                <h4>Total a Pagar: $@Model.Sum(p => p.Price)</h4> <!-- Cambio a dólares -->
                 <button class="btn btn-primary">Procesar Pago</button>
             </div>
         </div>
@@ -104,24 +96,9 @@ else
         font-size: 1rem;
     }
 
-    .item-price, .item-quantity, .item-remove {
+    .item-price, .item-remove {
         display: flex;
         align-items: center;
-    }
-
-    .quantity-btn {
-        background: #ddd;
-        border: none;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-    }
-
-    .quantity-input {
-        width: 40px;
-        text-align: center;
-        border: 1px solid #ddd;
-        margin: 0 5px;
     }
 
     .remove-btn {
