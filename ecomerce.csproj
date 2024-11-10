@@ -207,6 +207,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\fondoropa.jpg" />
     <Content Include="images\herramientas.png" />
+    <Content Include="images\her\alicates.jpeg" />
+    <Content Include="images\her\cinta.jpg" />
+    <Content Include="images\her\destornillador.jpg" />
+    <Content Include="images\her\inglesa.jpg" />
+    <Content Include="images\her\martillo.jpg" />
+    <Content Include="images\her\sierra.jpg" />
+    <Content Include="images\her\taladro.jpg" />
     <Content Include="images\ropa.png" />
     <Content Include="images\Ropa\Abrigo.jpg" />
     <Content Include="images\Ropa\Blusa.jpg" />
