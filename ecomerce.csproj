@@ -215,6 +215,7 @@
     <Content Include="images\her\martillo.jpg" />
     <Content Include="images\her\sierra.jpg" />
     <Content Include="images\her\taladro.jpg" />
+    <Content Include="images\MasterCard_Logo.svg.png" />
     <Content Include="images\ropa.png" />
     <Content Include="images\Ropa\Abrigo.jpg" />
     <Content Include="images\Ropa\Blusa.jpg" />
@@ -236,6 +237,7 @@
     <Content Include="images\Tec\Televisor 50 4K Ultra HD Smart Android.jpg" />
     <Content Include="images\Tec\Televisor 65 4K Ultra HD Smart TV.jpeg" />
     <Content Include="images\tecfondo.png" />
+    <Content Include="images\VISA-Logo-2014.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
