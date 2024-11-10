@@ -8,6 +8,7 @@ namespace ecomerce.Controllers
 {
     public class SeccionTecController : Controller
     {
+        [Authorize(Roles = "Admin")]
         public ActionResult Home()
         {
             return View(); // Esto devolverá la vista Home.cshtml ubicada en /Views/SeccionRopa/Home.cshtml
