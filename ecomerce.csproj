@@ -205,7 +205,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="images\fondoropa.jpg" />
+    <Content Include="images\banner\bannerHer.jpg" />
+    <Content Include="images\banner\bannerTec.jpg" />
+    <Content Include="images\banner\bannerropa.jpg" />
     <Content Include="images\herramientas.png" />
     <Content Include="images\her\alicates.jpeg" />
     <Content Include="images\her\cinta.jpg" />
@@ -216,6 +218,9 @@
     <Content Include="images\her\sierra.jpg" />
     <Content Include="images\her\taladro.jpg" />
     <Content Include="images\MasterCard_Logo.svg.png" />
+    <Content Include="images\oferta\oferta1.jpg" />
+    <Content Include="images\oferta\oferta2.jpg" />
+    <Content Include="images\oferta\oferta3.jpeg" />
     <Content Include="images\ropa.png" />
     <Content Include="images\Ropaicon.png" />
     <Content Include="images\Ropa\Abrigo.jpg" />

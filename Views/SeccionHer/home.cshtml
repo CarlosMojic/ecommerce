@@ -11,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Hero Section: Banner de bienvenida -->
-<section class="hero bg-dark text-white text-center py-5" style="background-image: url('../../images/fondoropa.jpg'); background-size: cover; background-position: center;">
+<section class="hero bg-dark text-white text-center py-5" style="background-image: url('../../images/banner/bannerHer.jpg'); background-size: cover; background-position: center;">
     <div class="container">
         <h1 class="display-4 font-weight-bold mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);">Bienvenido a un nuevo nivel de compras</h1>
         <p class="lead mb-5" style="font-family: 'Roboto', sans-serif; font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);">Lo último en moda, tecnología y accesorios exclusivos. Encuentra lo que realmente te apasiona.</p>
@@ -19,43 +19,43 @@
     </div>
 </section>
 
-<!-- Sección de productos destacados -->
-<section class="container py-5">
-    <h2 class="text-center mb-4">Productos Destacados</h2>
+<!-- Sección de categorías -->
+<section id="categories" class="container py-5">
+    <h2 class="text-center mb-4">Categorías</h2>
     <div class="row">
-        <!-- Producto 1 -->
+        <!-- Categoría 1: Tecnologia -->
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Producto 1">
-                <div class="card-body">
-                    <h5 class="card-title">Producto 1</h5>
-                    <p class="card-text">Descripción breve del producto.</p>
-                    <p class="card-text"><strong>$19.99</strong></p>
-                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                <img src="~/images/tecfondo.png" class="card-img-top" alt="Tecnologia">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tecnologia</h5>
+                    <p class="card-text">Encuentra lo mejor en tecnologia para tu día a día.</p>
+                    <a href="@Url.Action("home", "SeccionTec")" class="btn btn-outline-primary">Ver Tecnologia</a>
                 </div>
             </div>
         </div>
-        <!-- Producto 2 -->
+        <!-- Categoría 2: Ropa -->
+
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Producto 2">
-                <div class="card-body">
-                    <h5 class="card-title">Producto 2</h5>
-                    <p class="card-text">Descripción breve del producto.</p>
-                    <p class="card-text"><strong>$29.99</strong></p>
-                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                <img src="~/images/Ropaicon.png" class="card-img-top" alt="Ropa">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Ropa</h5>
+                    <p class="card-text">Descubre lo mas nuevo en moda.</p>
+                    <a href="@Url.Action("home", "SeccionRopa")" class="btn btn-outline-primary">Ver Ropa</a>
                 </div>
             </div>
         </div>
-        <!-- Producto 3 -->
+
+        <!-- Categoría 3: Herramientas -->
+
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Producto 3">
-                <div class="card-body">
-                    <h5 class="card-title">Producto 3</h5>
-                    <p class="card-text">Descripción breve del producto.</p>
-                    <p class="card-text"><strong>$39.99</strong></p>
-                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                <img src="~/images/herramientas.png" class="card-img-top" alt="Herramientas">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Herramientas</h5>
+                    <p class="card-text">Encuentra la mejor calidad en herramientas.</p>
+                    <a href="@Url.Action("home", "SeccionHer")" class="btn btn-outline-primary">Ver Herramientas</a>
                 </div>
             </div>
         </div>
