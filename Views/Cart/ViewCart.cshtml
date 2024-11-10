@@ -1,6 +1,8 @@
 ﻿<!-- File: Views/Cart/ViewCart.cshtml -->
+@using ecomerce
 @model List<ecomerce.Models.Product>
-<h2>Tu carrito de compras</h2>
+
+<h2>Detalle de Compra</h2>
 
 @if (Model.Count == 0)
 {
@@ -8,29 +10,160 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="cart-container">
+        <div class="cart-details">
+            <p>Tienes @Model.Count artículo(s) en tu carrito</p>
             @foreach (var product in Model)
             {
-                <tr>
-                    <td>@product.Name</td>
-                    <td>$@product.Price</td>
-                    <td>
-                        <!-- Enlace para eliminar el producto -->
-                        <a href="@Url.Action("RemoveFromCart", "Cart", new { productId = product.ProductId })">Eliminar</a>
-                    </td>
-                </tr>
+                <div class="cart-item">
+                    <div class="item-info">
+                        <img src="@product.ImageUrl" alt="@product.Name" class="product-image" />
+                        <div class="product-details">
+                            <h4>@product.Brand</h4>
+                            <p>@product.Name</p>
+                        </div>
+                    </div>
+                    <div class="item-price">
+                        <p>Precio: S/. @product.Price</p>
+                    </div>
+                    <div class="item-quantity">
+                        <form method="post" action="@Url.Action("UpdateQuantity", "Cart", new { productId = product.ProductId })">
+                            <button type="submit" name="quantity" value="@product.Quantity-1" class="quantity-btn">-</button>
+                            <input type="text" value="@product.Quantity" readonly class="quantity-input" />
+                            <button type="submit" name="quantity" value="@product.Quantity+1" class="quantity-btn">+</button>
+                        </form>
+                    </div>
+                    <div class="item-remove">
+                        <a href="@Url.Action("RemoveFromCart", "Cart", new { productId = product.ProductId })" class="remove-btn">Eliminar</a>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+        </div>
+
+        <div class="payment-section">
+            <h3>Detalle de Tarjeta</h3>
+            <div class="card-details">
+                <label>Tipo de tarjeta</label>
+                <div class="card-types">
+                    <img src="/images/mastercard.png" alt="MasterCard" />
+                    <img src="/images/visa.png" alt="Visa" />
+                </div>
+                <label>Nombre del Titular</label>
+                <input type="text" placeholder="USUARIO PRUEBAS" class="card-input" />
+
+                <label>Número de tarjeta</label>
+                <input type="text" placeholder="1234 5678 1234 5678" class="card-input" />
+
+                <div class="expiry-cvv">
+                    <div>
+                        <label>Vigencia</label>
+                        <input type="text" placeholder="MM/AA" class="card-input" />
+                    </div>
+                    <div>
+                        <label>CVV</label>
+                        <input type="text" placeholder="123" class="card-input" />
+                    </div>
+                </div>
+
+                <h4>Total a Pagar: S/. @Model.Sum(p => p.Price * p.Quantity)</h4>
+                <button class="btn btn-primary">Procesar Pago</button>
+            </div>
+        </div>
+    </div>
 }
 
-<!-- Enlace para continuar con la compra (esto puede redirigir a una página de pago, por ejemplo) -->
-<a href="#" class="btn btn-success">Ir a pagar</a>
+<style>
+    .cart-container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .cart-details {
+        flex: 2;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .item-info {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-image {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .product-details h4 {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .item-price, .item-quantity, .item-remove {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-btn {
+        background: #ddd;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .quantity-input {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ddd;
+        margin: 0 5px;
+    }
+
+    .remove-btn {
+        color: red;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .payment-section {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ddd;
+    }
+
+    .card-details label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .card-input {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .expiry-cvv {
+        display: flex;
+        gap: 10px;
+    }
+
+    .card-types img {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+</style>
