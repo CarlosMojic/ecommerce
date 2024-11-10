@@ -73,7 +73,9 @@ namespace ecomerce.Controllers
                 new Product { ProductId = 22, Name = "abrigo", Price = 10m},
                 new Product { ProductId = 23, Name = "abrigo", Price = 10m},
                 new Product { ProductId = 24, Name = "abrigo", Price = 10m},
+                
 
+                //tercera prueba de commit
             };
 
 
