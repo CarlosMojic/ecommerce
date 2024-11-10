@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Panel de Control";
+    ViewBag.HideNavbar = true;
 }
 
 <!DOCTYPE html>
@@ -8,59 +9,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <!-- Aquí podrías agregar los estilos de Bootstrap o CSS propio -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Barra lateral estilizada */
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            background-color: #343a40;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+            .sidebar a {
+                padding: 12px 20px;
+                font-size: 18px;
+                color: #ddd;
+                text-decoration: none;
+                display: block;
+                margin: 10px 0;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background-color: #495057;
+                    color: #fff;
+                }
+
+            .sidebar .active {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+        .content {
+            margin-left: 260px;
+            padding: 40px;
+        }
+
+            .content h2 {
+                margin-top: 20px;
+                font-size: 2.5rem;
+                font-weight: 600;
+                color: #343a40;
+            }
+
+            .content p {
+                font-size: 1.2rem;
+                color: #6c757d;
+            }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-action {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <!-- Logo o nombre de la página -->
-            <a class="navbar-brand" href="#">Panel de Control</a>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <a href="@Url.Action("Index", "Home")" class="active">Ver Tienda</a>
+        <form action="@Url.Action("Logout", "Account")" method="post" class="nav-link">
+            <button type="submit" class="btn btn-link text-white">Cerrar Sesión</button>
+        </form>
+        <a href="@Url.Action("Index", "Admin")">Panel de Administración</a>
+        <hr class="text-white">
+    </div>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <!-- Enlace a la tienda -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Home")">Ver Tienda</a>
-                    </li>
-
-                    <!-- Botón de cerrar sesión -->
-                    <li class="nav-item">
-                        <form action="@Url.Action("Logout", "Account")" method="post" class="nav-link">
-                            <button type="submit" class="btn btn-link nav-link">Cerrar Sesión</button>
-                        </form>
-                    </li>
-
-                    <!-- Botón para redirigir a Admin Index -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Admin")">Ir al Panel de Administración</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container mt-5">
+    <!-- Área de contenido -->
+    <div class="content">
         <h2>@ViewBag.Title</h2>
-        <p>Bienvenido al panel de control, aquí puedes gestionar empleados y usuarios.</p>
+        <p>Bienvenido al panel de control, donde puedes gestionar empleados y usuarios de manera eficiente.</p>
 
-        <!-- Botones para la gestión -->
+        <!-- Cards con botones de acción -->
         <div class="row">
-            <!-- Botón para gestionar empleados -->
             <div class="col-md-6">
-                <a href="@Url.Action("GestionEmpleados", "Admin")" class="btn btn-primary btn-lg btn-block">Gestionar Empleados</a>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Gestión de Empleados</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-4">Accede a las herramientas para gestionar los empleados de la tienda.</p>
+                        <a href="@Url.Action("GestionEmpleados", "Admin")" class="btn btn-primary btn-action">Gestionar Empleados</a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Botón para gestionar usuarios -->
             <div class="col-md-6">
-                <a href="@Url.Action("GestionUsuarios", "Admin")" class="btn btn-primary btn-lg btn-block">Gestionar Usuarios</a>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Gestión de Usuarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-4">Accede a las herramientas para gestionar los usuarios registrados en el sistema.</p>
+                        <a href="@Url.Action("GestionUsuarios", "Admin")" class="btn btn-primary btn-action">Gestionar Usuarios</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Agregar scripts de Bootstrap si es necesario -->
+    <!-- Agregar scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
