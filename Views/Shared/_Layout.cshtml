@@ -14,6 +14,22 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <!-- Estilos para fijar la navbar en la parte superior -->
+    <style>
+        /* Fijar la navbar en la parte superior */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Asegurarse de que la navbar esté por encima de otros elementos */
+        }
+
+        /* Añadir margen superior al contenido para evitar que se superponga a la navbar */
+        .body-content {
+            margin-top: 70px; /* Ajusta este valor dependiendo de la altura de la navbar */
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -30,12 +46,13 @@
                     <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Carrito", "ViewCart", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
-                 @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
+
     <div class="container body-content">
-        @RenderBody()
+        @RenderBody() <!-- Aquí se renderiza el contenido específico de cada vista -->
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
