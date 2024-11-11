@@ -4,30 +4,32 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="container">
+    <h2 class="text-center text-primary mb-4">@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre_cargo)
-        </th>
-        <th></th>
-    </tr>
+    <div class="mb-3">
+        @Html.ActionLink("Crear Nuevo Cargo", "Create", null, new { @class = "btn btn-success" })
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_cargo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cargo_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cargo_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cargo_id })
-        </td>
-    </tr>
-}
-
-</table>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.nombre_cargo)</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.nombre_cargo)</td>
+                    <td class="text-center">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.cargo_id }, new { @class = "btn btn-warning btn-sm me-2" }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.cargo_id }, new { @class = "btn btn-info btn-sm me-2" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.cargo_id }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
