@@ -10,6 +10,7 @@ using ecomerce.Models;
 
 namespace ecomerce.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class departamentosController : Controller
     {
         private EmpleadosEntities db = new EmpleadosEntities();
