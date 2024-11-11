@@ -72,7 +72,7 @@ namespace ecomerce.Controllers
             if (model.Email == "admin@gmail.com" && model.Password == "Eladmin9?")
             {
                 // Si las credenciales son correctas, redirigir a la vista Cart/ViewCart.cshtml
-                return RedirectToAction("ViewCart", "Cart");
+                return RedirectToAction("index", "Admin");
             }
 
             // Si las credenciales no coinciden, proceder con la autenticación normal de ASP.NET Identity
