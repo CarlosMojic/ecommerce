@@ -4,60 +4,42 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center text-primary mb-4">@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha_ingreso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cargos.nombre_cargo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.departamentos.nombre_departamento)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="mb-3">
+        @Html.ActionLink("Crear Nuevo Usuario", "Create", new { @class = "btn btn-success" })
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha_ingreso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cargos.nombre_cargo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.departamentos.nombre_departamento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.usuario_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.usuario_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.usuario_id })
-        </td>
-    </tr>
-}
-
-</table>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.apellido)</th>
+                <th>@Html.DisplayNameFor(model => model.correo)</th>
+                <th>@Html.DisplayNameFor(model => model.fecha_ingreso)</th>
+                <th>@Html.DisplayNameFor(model => model.cargos.nombre_cargo)</th>
+                <th>@Html.DisplayNameFor(model => model.departamentos.nombre_departamento)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.apellido)</td>
+                    <td>@Html.DisplayFor(modelItem => item.correo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.fecha_ingreso)</td>
+                    <td>@Html.DisplayFor(modelItem => item.cargos.nombre_cargo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.departamentos.nombre_departamento)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.usuario_id }, new { @class = "btn btn-warning btn-sm me-2" }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.usuario_id }, new { @class = "btn btn-info btn-sm me-2" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.usuario_id }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
