@@ -8,6 +8,7 @@ namespace ecomerce.Controllers
 {
     public class AdminController : Controller
     {
+       
         // GET: Admin
         public ActionResult Index()
         {

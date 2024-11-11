@@ -68,14 +68,25 @@ namespace ecomerce.Controllers
                 return View(model);
             }
 
-            // Verificar si las credenciales son correctas (admin@example.com / Eladmin9?)
+            // Verificar si las credenciales son correctas para la cuenta admin
             if (model.Email == "admin@gmail.com" && model.Password == "Eladmin9?")
             {
-                // Si las credenciales son correctas, redirigir a la vista Cart/ViewCart.cshtml
-                return RedirectToAction("index", "Admin");
+                // Autenticar al usuario como administrador
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                    await UserManager.CreateAsync(user, model.Password);
+                }
+
+                // Iniciar sesión para el usuario admin
+                await SignInManager.SignInAsync(user, isPersistent: model.RememberMe, rememberBrowser: false);
+
+                // Redirigir a la vista Admin/index
+                return RedirectToAction("Index", "Admin");
             }
 
-            // Si las credenciales no coinciden, proceder con la autenticación normal de ASP.NET Identity
+            // Autenticación normal con ASP.NET Identity
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -91,6 +102,7 @@ namespace ecomerce.Controllers
                     return View(model);
             }
         }
+
 
         // Método para redirigir a la URL local (si es válida)
         private ActionResult RedirectToLocal(string returnUrl)
